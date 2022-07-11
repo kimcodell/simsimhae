@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
   subTitle: {
     fontWeight: '700',
     fontSize: 16,
+    color: '#000000',
   },
   difficultyButtonContainer: {
     flexDirection: 'row',
@@ -118,9 +119,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 2,
     borderColor: '#414360',
-    paddingVertical: 10,
-    marginHorizontal: 10,
-    width: 60,
+    paddingVertical: 6,
+    marginHorizontal: 6,
+    width: 50,
   },
   difficultyButtonDefaultText: {
     color: '#414360',
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
   albumButton: {
     backgroundColor: '#ffffff',
     borderRadius: 8,
-    paddingVertical: 12,
+    paddingVertical: 10,
     width: 160,
     alignItems: 'center',
     borderWidth: 2,
