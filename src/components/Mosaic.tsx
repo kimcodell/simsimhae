@@ -1,15 +1,16 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import {StyleProp, StyleSheet, TouchableOpacity, ViewStyle} from 'react-native';
+import {Difficulty} from '../utils/types';
 
-function Mosaic() {
+function Mosaic({difficulty = Difficulty.NORMAL}: {difficulty?: Difficulty}) {
   const [opacity, setOpacity] = useState<number>(1);
   const style: StyleProp<ViewStyle> = useMemo(
     () => ({
       ...styles.mosaic,
+      ...(difficulty === Difficulty.EASY ? {width: '20%', height: '20%'} : {}),
       opacity,
-      // borderRadius: opacity === 1 ? 0 : 16,
     }),
-    [opacity],
+    [opacity, difficulty],
   );
 
   const onPress = useCallback(() => {

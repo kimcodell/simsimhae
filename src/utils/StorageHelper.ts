@@ -18,6 +18,15 @@ const StorageHelper = {
       return [];
     }
   },
+
+  async clearAll(): Promise<boolean> {
+    try {
+      await AsyncStorage.removeItem('images');
+      return true;
+    } catch (e) {
+      return false;
+    }
+  },
 };
 
 export default StorageHelper;

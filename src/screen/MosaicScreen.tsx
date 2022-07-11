@@ -7,19 +7,22 @@ import {
   StyleSheet,
 } from 'react-native';
 import Mosaic from '../components/Mosaic';
+import {Difficulty} from '../utils/types';
 
 const {width, height} = Dimensions.get('window');
 
 function MosaicScreen({
   //@ts-ignore
   route: {
-    params: {uri},
+    params: {uri, difficulty},
   },
 }: NativeStackNavigationProp<any>) {
   const number = useMemo(() => {
-    return Math.ceil(height / width) * 100;
-  }, []);
-  console.log(number, height, width);
+    return (
+      Math.ceil(height / width) * (difficulty === Difficulty.NORMAL ? 100 : 25)
+    );
+  }, [difficulty]);
+
   return (
     <SafeAreaView style={styles.flex}>
       <ImageBackground
@@ -29,7 +32,7 @@ function MosaicScreen({
         {Array(number)
           .fill(0)
           .map((_, i) => (
-            <Mosaic key={i} />
+            <Mosaic key={i} difficulty={difficulty} />
           ))}
       </ImageBackground>
     </SafeAreaView>
